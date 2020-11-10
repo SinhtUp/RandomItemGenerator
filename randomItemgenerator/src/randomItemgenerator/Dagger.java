@@ -1,9 +1,9 @@
 package randomItemgenerator;
 
 public class Dagger {
-	boolean chooseDagger;
-	boolean oneHand;
-	int groundDamage;
+	boolean chooseDagger = false;
+	boolean oneHand = true;
+	int groundDamage = 1;
 	
 	
 	

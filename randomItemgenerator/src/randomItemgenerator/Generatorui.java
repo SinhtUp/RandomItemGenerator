@@ -35,17 +35,17 @@ public class Generatorui {
 		getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Kurzschwert");
-		rdbtnNewRadioButton.setBounds(8, 8, 120, 15);
-		frame.getContentPane().add(rdbtnNewRadioButton);
+		JRadioButton rdbtnShortsword = new JRadioButton("Kurzschwert");
+		rdbtnShortsword.setBounds(8, 8, 120, 15);
+		frame.getContentPane().add(rdbtnShortsword);
 		
 		JRadioButton rdbtnLongSword = new JRadioButton("Langschwert");
 		rdbtnLongSword.setBounds(132, 8, 120, 15);
 		frame.getContentPane().add(rdbtnLongSword);
 		
-		JRadioButton rdbtnDolch = new JRadioButton("Dolch");
-		rdbtnDolch.setBounds(256, 8, 71, 15);
-		frame.getContentPane().add(rdbtnDolch);
+		JRadioButton rdbtnDagger = new JRadioButton("Dolch");
+		rdbtnDagger.setBounds(256, 8, 71, 15);
+		frame.getContentPane().add(rdbtnDagger);
 		
 		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Stab");
 		rdbtnNewRadioButton_1.setBounds(331, 8, 71, 15);
