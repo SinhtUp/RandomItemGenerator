@@ -2,12 +2,12 @@ package randomItemgenerator;
 
 import javax.swing.JFrame;
 
-public class generatorUi {
+public class Generatorui {
 	
 	private JFrame frame;
 	
 	
-	public generatorUi() {
+	public Generatorui() {
 		initialize();
 	}
 

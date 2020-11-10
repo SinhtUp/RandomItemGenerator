@@ -1,6 +1,6 @@
 package randomItemgenerator;
 
-public class sword {
+public class Shortsword {
 	
 	
 	
