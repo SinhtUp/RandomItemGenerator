@@ -2,11 +2,17 @@ package randomItemgenerator;
 
 public class Shortsword {
 	
-	boolean chooseShortsword = false;
-	boolean oneHand = true;
-	int groundDamage = 2;
+
+		
+		boolean oneHand = true;
+		
+		int groundDamage = 2;
+		
+		boolean chooseShortsword = false;
+
 
 	
+		
 	
 
 }

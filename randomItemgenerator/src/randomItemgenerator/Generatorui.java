@@ -1,34 +1,53 @@
 package randomItemgenerator;
 
-import javax.swing.JFrame;
-import java.awt.FlowLayout;
-import javax.swing.JRadioButton;
-import javax.swing.JSeparator;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import javax.swing.JTextPane;
-import javax.swing.JTextField;
-import java.awt.Color;
-import javax.swing.SwingConstants;
-import javax.swing.UIManager;
-import java.awt.Font;
-import java.awt.Dimension;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Locale;
+
 
 public class Generatorui {
 	
 	private JFrame frmRandomItemGenerator;
 	private JTextField textField;
+	boolean shortSwordselect, longSwordselect, daggerSelect, staffSelect, bowSelect, fireSelect, windSelect, iceSelect, lightningSelect, lightSelect, darknessSelect;
+	public JRadioButton rdbtnShortsword, rdbtnLongSword, rdbtnDagger, rdbtnStaff, rdbtnBow, rdbtnFire, rdbtnWind, rdbtnIce, rdbtnLightning, rdbtnLight, rdbtnDarkness;
+	
+	/*========= zwischenablage===================
+	 rdbtnShortsword.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (shortSwordselect == false && e.getSource() == rdbtnShortsword) {
+					shortSwordselect = true;
+					rdbtnLongSword.setSelected(false); rdbtnBow.setSelected(false); rdbtnDagger.setSelected(false); rdbtnLongSword.setSelected(false); 
+					rdbtnStaff.setSelected(false); rdbtnShortsword.setSelected(false);
+					
+					shortSwordselect = false ; longSwordselect = false; daggerSelect = false; staffSelect = false; bowSelect = false;
+					//prüfen ob ein output signal kommt
+					System.out.println(shortSwordselect);
+				}
+				else if (shortSwordselect == true && e.getSource()== rdbtnShortsword) {
+					shortSwordselect = false;
+					//prüfen ob ein output signal kommt
+					System.out.println(shortSwordselect);
+					
+				}
+			}
+		});
+		*/
 	
 	
-	public Generatorui() {
-		initialize();
-	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	
+	
+	public void initialize() {
+		
+		
+		Actions generatorhandler = new Actions();
+		
 		frmRandomItemGenerator = new JFrame();
 		frmRandomItemGenerator.setTitle("Random Item Generator (Beta)");
 		frmRandomItemGenerator.setResizable(false);
@@ -37,36 +56,42 @@ public class Generatorui {
 		frmRandomItemGenerator.getContentPane().setFont(UIManager.getFont("ColorChooser.font"));
 		frmRandomItemGenerator.getContentPane().setBackground(Color.GRAY);
 		frmRandomItemGenerator.setBackground(Color.LIGHT_GRAY);
-		getFrame().setBounds(100, 100, 720, 430);
-		getFrame().setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmRandomItemGenerator.setBounds(100, 100, 720, 430);
+		frmRandomItemGenerator.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmRandomItemGenerator.getContentPane().setLayout(null);
+		frmRandomItemGenerator.setVisible(true);
 		
-		JRadioButton rdbtnShortsword = new JRadioButton("Kurzschwert");
-		rdbtnShortsword.setBorder(null);
-		rdbtnShortsword.setForeground(Color.BLACK);
+		rdbtnShortsword = new JRadioButton("Kurzschwert");
+		rdbtnShortsword.addActionListener(generatorhandler);
 		rdbtnShortsword.setBounds(8, 8, 120, 15);
 		rdbtnShortsword.setBackground(null);
 		frmRandomItemGenerator.getContentPane().add(rdbtnShortsword);
 		
-		JRadioButton rdbtnLongSword = new JRadioButton("Langschwert");
+		
+		
+		rdbtnLongSword = new JRadioButton("Langschwert");
+		rdbtnLongSword.addActionListener(generatorhandler);
 		rdbtnLongSword.setBounds(132, 8, 120, 15);
 		rdbtnLongSword.setBackground(null);
 		frmRandomItemGenerator.getContentPane().add(rdbtnLongSword);
 		
-		JRadioButton rdbtnDagger = new JRadioButton("Dolch");
+		rdbtnDagger = new JRadioButton("Dolch");
+		rdbtnDagger.addActionListener(generatorhandler);
 		rdbtnDagger.setBounds(256, 8, 71, 15);
 		rdbtnDagger.setBackground(null);
 		frmRandomItemGenerator.getContentPane().add(rdbtnDagger);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Stab");
-		rdbtnNewRadioButton_1.setBounds(331, 8, 71, 15);
-		rdbtnNewRadioButton_1.setBackground(null);
-		frmRandomItemGenerator.getContentPane().add(rdbtnNewRadioButton_1);
+		rdbtnStaff = new JRadioButton("Stab");
+		rdbtnStaff.addActionListener(generatorhandler);
+		rdbtnStaff.setBounds(331, 8, 71, 15);
+		rdbtnStaff.setBackground(null);
+		frmRandomItemGenerator.getContentPane().add(rdbtnStaff);
 		
-		JRadioButton rdbtnBogen = new JRadioButton("Bogen");
-		rdbtnBogen.setBounds(406, 8, 78, 15);
-		rdbtnBogen.setBackground(null);
-		frmRandomItemGenerator.getContentPane().add(rdbtnBogen);
+		rdbtnBow = new JRadioButton("Bogen");
+		rdbtnBow.addActionListener(generatorhandler);
+		rdbtnBow.setBounds(406, 8, 78, 15);
+		rdbtnBow.setBackground(null);
+		frmRandomItemGenerator.getContentPane().add(rdbtnBow);
 		
 		JTextPane txtpnTest = new JTextPane();
 		txtpnTest.setEditable(false);
@@ -93,35 +118,35 @@ public class Generatorui {
 		separator.setBounds(492, 8, 63, 371);
 		frmRandomItemGenerator.getContentPane().add(separator);
 		
-		JRadioButton rdbtnFeuer = new JRadioButton("Feuer");
-		rdbtnFeuer.setBounds(508, 34, 149, 23);
-		rdbtnFeuer.setBackground(null);
-		frmRandomItemGenerator.getContentPane().add(rdbtnFeuer);
+		rdbtnFire = new JRadioButton("Feuer");
+		rdbtnFire.setBounds(508, 34, 149, 23);
+		rdbtnFire.setBackground(null);
+		frmRandomItemGenerator.getContentPane().add(rdbtnFire);
 		
-		JRadioButton rdbtnWind = new JRadioButton("Wind");
+		rdbtnWind = new JRadioButton("Wind");
 		rdbtnWind.setBounds(508, 61, 149, 23);
 		rdbtnWind.setBackground(null);
 		frmRandomItemGenerator.getContentPane().add(rdbtnWind);
 		
-		JRadioButton rdbtnEis = new JRadioButton("Eis");
-		rdbtnEis.setBounds(508, 86, 149, 23);
-		rdbtnEis.setBackground(null);
-		frmRandomItemGenerator.getContentPane().add(rdbtnEis);
+		rdbtnIce = new JRadioButton("Eis");
+		rdbtnIce.setBounds(508, 86, 149, 23);
+		rdbtnIce.setBackground(null);
+		frmRandomItemGenerator.getContentPane().add(rdbtnIce);
 		
-		JRadioButton rdbtnBlitz = new JRadioButton("Blitz");
-		rdbtnBlitz.setBounds(508, 113, 149, 23);
-		rdbtnBlitz.setBackground(null);
-		frmRandomItemGenerator.getContentPane().add(rdbtnBlitz);
+		rdbtnLightning = new JRadioButton("Blitz");
+		rdbtnLightning.setBounds(508, 113, 149, 23);
+		rdbtnLightning.setBackground(null);
+		frmRandomItemGenerator.getContentPane().add(rdbtnLightning);
 		
-		JRadioButton rdbtnLicht = new JRadioButton("Licht");
-		rdbtnLicht.setBounds(508, 140, 149, 23);
-		rdbtnLicht.setBackground(null);
-		frmRandomItemGenerator.getContentPane().add(rdbtnLicht);
+		rdbtnLight = new JRadioButton("Licht");
+		rdbtnLight.setBounds(508, 140, 149, 23);
+		rdbtnLight.setBackground(null);
+		frmRandomItemGenerator.getContentPane().add(rdbtnLight);
 		
-		JRadioButton rdbtnFinsterniss = new JRadioButton("Finsterniss");
-		rdbtnFinsterniss.setBounds(508, 167, 149, 23);
-		rdbtnFinsterniss.setBackground(null);
-		frmRandomItemGenerator.getContentPane().add(rdbtnFinsterniss);
+		rdbtnDarkness = new JRadioButton("Finsterniss");
+		rdbtnDarkness.setBounds(508, 167, 149, 23);
+		rdbtnDarkness.setBackground(null);
+		frmRandomItemGenerator.getContentPane().add(rdbtnDarkness);
 		
 		JLabel lblEffekt = new JLabel("Effekte");
 		lblEffekt.setFont(new Font("Dialog", Font.BOLD, 15));
@@ -132,9 +157,49 @@ public class Generatorui {
 		separator_1.setForeground(UIManager.getColor("Button.disabledText"));
 		separator_1.setBounds(0, 29, 694, 7);
 		frmRandomItemGenerator.getContentPane().add(separator_1);
+		
 	}
 
-	public JFrame getFrame() {
-		return frmRandomItemGenerator;
+	private class Actions implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+																	//händler für den kurzschwert Radialbutton
+																if (shortSwordselect == false && e.getSource() == rdbtnShortsword) {
+																	shortSwordselect = true;
+																	rdbtnLongSword.setSelected(false); rdbtnBow.setSelected(false); rdbtnDagger.setSelected(false); rdbtnLongSword.setSelected(false); 
+																	rdbtnStaff.setSelected(false);
+																	
+																	longSwordselect = false; daggerSelect = false; staffSelect = false; bowSelect = false;
+																	//prüfen ob ein output signal kommt
+																	System.out.println("kurzschwert "+shortSwordselect);
+																}
+																else if (shortSwordselect == true && e.getSource()== rdbtnShortsword) {
+																	shortSwordselect = false;
+																	//prüfen ob ein output signal kommt
+																	System.out.println("kurzschwert "+shortSwordselect);
+																	
+																}
+			
+																
+			//händler für den Bogen Radialbutton
+			if (bowSelect == false && e.getSource() == rdbtnBow) {
+			bowSelect = true;
+			rdbtnLongSword.setSelected(false); rdbtnDagger.setSelected(false); rdbtnLongSword.setSelected(false); 
+			rdbtnStaff.setSelected(false); rdbtnShortsword.setSelected(false);
+							
+			shortSwordselect = false ; longSwordselect = false; daggerSelect = false; staffSelect = false;
+			//prüfen ob ein output signal kommt
+			System.out.println("Bogen "+bowSelect);
+			}
+			else if (bowSelect == true && e.getSource()== rdbtnBow) {
+			bowSelect = false;
+			//prüfen ob ein output signal kommt
+			System.out.println("Bogen "+bowSelect);
+																		
+																	}											
+			
+																
+		}
 	}
 }
