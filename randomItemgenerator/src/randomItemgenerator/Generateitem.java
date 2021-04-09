@@ -1,27 +1,23 @@
 package randomItemgenerator;
 
-public class Generateitem extends Generatorui {
-	Bow bow = new Bow();
-	Dagger dagger = new Dagger();
-	Longsword longSword = new Longsword();
+public class Generateitem  {
+	String ausgabe;
 	
 	
-	
-	public void Itemgeneration() {
+
+	public Generateitem(String weaponType, String modifikationType) {
 		
+		String weapon = weaponType;
 		
-		if (shortSwordselect == true) {
+		String modifikation = modifikationType;
+		
+		if (weapon.contentEquals(weapon)) {
 			
-			
+			ausgabe = "es ist ein Dolch";
 			
 		}
 		
 		
-		
-		
-		
 	}
 	
-	
-
 }

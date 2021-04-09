@@ -11,36 +11,17 @@ public class Generatorui {
 	
 	private JFrame frmRandomItemGenerator;
 	private JTextField textField;
+	//boolische werte sind vorerst überflüssig geworden wird in zukunft nützlich sein
 	boolean shortSwordselect, longSwordselect, daggerSelect, staffSelect, bowSelect, fireSelect, windSelect, iceSelect, lightningSelect, lightSelect, darknessSelect;
 	private JRadioButton rdbtnShortsword, rdbtnLongSword, rdbtnDagger, rdbtnStaff, rdbtnBow, rdbtnFire, rdbtnWind, rdbtnIce, rdbtnLightning, rdbtnLight, rdbtnDarkness;
 	
 	/*========= zwischenablage===================
-	 rdbtnShortsword.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (shortSwordselect == false && e.getSource() == rdbtnShortsword) {
-					shortSwordselect = true;
-					rdbtnLongSword.setSelected(false); rdbtnBow.setSelected(false); rdbtnDagger.setSelected(false); rdbtnLongSword.setSelected(false); 
-					rdbtnStaff.setSelected(false); rdbtnShortsword.setSelected(false);
-					
-					shortSwordselect = false ; longSwordselect = false; daggerSelect = false; staffSelect = false; bowSelect = false;
-					//prüfen ob ein output signal kommt
-					System.out.println(shortSwordselect);
-				}
-				else if (shortSwordselect == true && e.getSource()== rdbtnShortsword) {
-					shortSwordselect = false;
-					//prüfen ob ein output signal kommt
-					System.out.println(shortSwordselect);
-					
-				}
-			}
-		});
-		*/
+	
+	*/
 	
 	
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	
 	
 	
 	public void initialize() {
@@ -49,7 +30,7 @@ public class Generatorui {
 		Actions generatorhandler = new Actions();
 		
 		frmRandomItemGenerator = new JFrame();
-		frmRandomItemGenerator.setTitle("Random Item Generator (Beta)");
+		frmRandomItemGenerator.setTitle("Random Item Generator (pre pre pre Alpha)");
 		frmRandomItemGenerator.setResizable(false);
 		frmRandomItemGenerator.getContentPane().setLocale(Locale.GERMANY);
 		frmRandomItemGenerator.getContentPane().setMaximumSize(new Dimension(720, 430));
@@ -164,7 +145,10 @@ public class Generatorui {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-																	//händler für den kurzschwert Radialbutton
+		//========================================================== Händler für radiale Buttons der waffenarten ==============================================================================//
+																
+																//händler für den kurzschwert Radialbutton
+																
 																if (shortSwordselect == false && e.getSource() == rdbtnShortsword) {
 																	shortSwordselect = true;
 																	rdbtnLongSword.setSelected(false); rdbtnBow.setSelected(false); rdbtnDagger.setSelected(false); rdbtnLongSword.setSelected(false); 
@@ -178,11 +162,11 @@ public class Generatorui {
 																	shortSwordselect = false;
 																	//prüfen ob ein output signal kommt
 																	System.out.println("kurzschwert "+shortSwordselect);
-																	
 																}
 			
 																
 			//händler für den Bogen Radialbutton
+			
 			if (bowSelect == false && e.getSource() == rdbtnBow) {
 			bowSelect = true;
 			rdbtnLongSword.setSelected(false); rdbtnDagger.setSelected(false); rdbtnLongSword.setSelected(false); 
@@ -190,15 +174,79 @@ public class Generatorui {
 							
 			shortSwordselect = false ; longSwordselect = false; daggerSelect = false; staffSelect = false;
 			//prüfen ob ein output signal kommt
-			System.out.println("Bogen "+bowSelect);
+			System.out.println("Bogen " + bowSelect);
 			}
 			else if (bowSelect == true && e.getSource()== rdbtnBow) {
 			bowSelect = false;
 			//prüfen ob ein output signal kommt
-			System.out.println("Bogen "+bowSelect);
-																		
-																	}											
+			System.out.println("Bogen "+ bowSelect);
+			}											
 			
+																//händler für den Langschwert Radialbutton
+																
+																if (longSwordselect == false && e.getSource() == rdbtnLongSword) {
+																	longSwordselect = true;
+																	rdbtnBow.setSelected(false); rdbtnDagger.setSelected(false); 
+																	rdbtnStaff.setSelected(false); rdbtnShortsword.setSelected(false);
+																	
+																	shortSwordselect = false ; longSwordselect = true; daggerSelect = false; staffSelect = false; bowSelect = false;
+																	
+																//prüfen ob ein output signal kommt
+																	System.out.println("langschwert " + longSwordselect);
+																}
+																else if (longSwordselect == true && e.getSource()== rdbtnLongSword) {
+																	longSwordselect = false;
+																	
+																//prüfen ob ein output signal kommt
+																	System.out.println("langschwert " + longSwordselect);
+																}
+																
+		
+			//händler für den Dolch Radialbutton
+			
+			if (daggerSelect == false && e.getSource() == rdbtnDagger) {
+			daggerSelect = true;
+			rdbtnLongSword.setSelected(false); rdbtnBow.setSelected(false); rdbtnLongSword.setSelected(false); 
+			rdbtnStaff.setSelected(false); rdbtnShortsword.setSelected(false);
+																
+			shortSwordselect = false ; longSwordselect = false; staffSelect = false; bowSelect = false;
+			//Konstruktor initialisierung
+			Generateitem generateitem = new Generateitem("dagger", "fire");
+			
+			System.out.println(generateitem.ausgabe);
+			//prüfen ob ein output signal kommt
+			System.out.println("Dolch " + daggerSelect);
+			}
+			else if (daggerSelect == true && e.getSource()== rdbtnDagger) {
+			daggerSelect = false;
+			//prüfen ob ein output signal kommt
+			System.out.println("Dolch " + daggerSelect);
+			}
+		
+																//händler für den Stab Radialbutton
+																
+																if (staffSelect == false && e.getSource() == rdbtnStaff) {
+																	staffSelect = true;
+																	rdbtnLongSword.setSelected(false); rdbtnBow.setSelected(false); rdbtnDagger.setSelected(false); rdbtnLongSword.setSelected(false); 
+																	rdbtnShortsword.setSelected(false);
+																	
+																	shortSwordselect = false ; longSwordselect = false; daggerSelect = false; bowSelect = false;
+																	//prüfen ob ein output signal kommt
+																	System.out.println("Stab " + staffSelect);
+																}
+																else if (staffSelect == true && e.getSource()== rdbtnStaff) {
+																	staffSelect = false;
+																	//prüfen ob ein output signal kommt
+																	System.out.println("Stab " + staffSelect);
+																}
+          
+																
+		//========================================================== Händler für radiale Buttons der Modifikatoren ==============================================================================//
+		
+			//händler für den Stab Radialbutton
+			if (bowSelect) {
+				
+			}
 																
 		}
 	}
