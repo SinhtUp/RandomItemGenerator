@@ -6,8 +6,7 @@ import java.awt.EventQueue;
 
 public class Mainprogramm {
 
-	Bow bow = new Bow();
-	
+		
 	static Generatorui window = new Generatorui();
 	
 	

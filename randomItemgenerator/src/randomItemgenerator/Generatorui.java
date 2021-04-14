@@ -1,6 +1,9 @@
 package randomItemgenerator;
 
 import javax.swing.*;
+
+
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +14,7 @@ public class Generatorui {
 	
 	private JFrame frmRandomItemGenerator;
 	private JTextField textField;
+	 public JTextPane txtoutput;
 	//boolische werte sind vorerst überflüssig geworden wird in zukunft nützlich sein
 	boolean shortSwordselect, longSwordselect, daggerSelect, staffSelect, bowSelect, fireSelect, windSelect, iceSelect, lightningSelect, lightSelect, darknessSelect;
 	private JRadioButton rdbtnShortsword, rdbtnLongSword, rdbtnDagger, rdbtnStaff, rdbtnBow, rdbtnFire, rdbtnWind, rdbtnIce, rdbtnLightning, rdbtnLight, rdbtnDarkness;
@@ -24,6 +28,9 @@ public class Generatorui {
 	
 	
 	
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public void initialize() {
 		
 		
@@ -74,10 +81,10 @@ public class Generatorui {
 		rdbtnBow.setBackground(null);
 		frmRandomItemGenerator.getContentPane().add(rdbtnBow);
 		
-		JTextPane txtpnTest = new JTextPane();
-		txtpnTest.setEditable(false);
-		txtpnTest.setBounds(12, 88, 468, 279);
-		frmRandomItemGenerator.getContentPane().add(txtpnTest);
+		txtoutput = new JTextPane();
+		txtoutput.setEditable(false);
+		txtoutput.setBounds(12, 88, 468, 279);
+		frmRandomItemGenerator.getContentPane().add(txtoutput);
 		
 		textField = new JTextField();
 		textField.setBounds(8, 53, 71, 23);
@@ -146,7 +153,7 @@ public class Generatorui {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 		//========================================================== Händler für radiale Buttons der waffenarten ==============================================================================//
-																
+															
 																//händler für den kurzschwert Radialbutton
 																
 																if (shortSwordselect == false && e.getSource() == rdbtnShortsword) {
@@ -155,8 +162,15 @@ public class Generatorui {
 																	rdbtnStaff.setSelected(false);
 																	
 																	longSwordselect = false; daggerSelect = false; staffSelect = false; bowSelect = false;
+																	//Konstruktor initialisierung
+																	Generateitem generateitemShortsword = new Generateitem("shortsword",null);
+																	Generateitem generatelvl = new Generateitem(0);
+																	System.out.println(generateitemShortsword.ausgabe);
 																	//prüfen ob ein output signal kommt
 																	System.out.println("kurzschwert "+shortSwordselect);
+																	//testen der textpaneausgabe in der anwendung
+																	txtoutput.setText(generateitemShortsword.ausgabe);
+																	
 																}
 																else if (shortSwordselect == true && e.getSource()== rdbtnShortsword) {
 																	shortSwordselect = false;
@@ -173,6 +187,9 @@ public class Generatorui {
 			rdbtnStaff.setSelected(false); rdbtnShortsword.setSelected(false);
 							
 			shortSwordselect = false ; longSwordselect = false; daggerSelect = false; staffSelect = false;
+			//Konstruktor initialisierung
+			Generateitem generateitemBow = new Generateitem("bow", null);
+			System.out.println(generateitemBow.ausgabe);
 			//prüfen ob ein output signal kommt
 			System.out.println("Bogen " + bowSelect);
 			}
@@ -190,7 +207,9 @@ public class Generatorui {
 																	rdbtnStaff.setSelected(false); rdbtnShortsword.setSelected(false);
 																	
 																	shortSwordselect = false ; longSwordselect = true; daggerSelect = false; staffSelect = false; bowSelect = false;
-																	
+																//Konstruktor initialisierung
+																Generateitem generateitemLongsword = new Generateitem("longsword", null);
+																System.out.println(generateitemLongsword.ausgabe);
 																//prüfen ob ein output signal kommt
 																	System.out.println("langschwert " + longSwordselect);
 																}
@@ -211,9 +230,9 @@ public class Generatorui {
 																
 			shortSwordselect = false ; longSwordselect = false; staffSelect = false; bowSelect = false;
 			//Konstruktor initialisierung
-			Generateitem generateitem = new Generateitem("dagger", "fire");
+			Generateitem generateitemDagger = new Generateitem("dagger", null);
 			
-			System.out.println(generateitem.ausgabe);
+			System.out.println(generateitemDagger.ausgabe);
 			//prüfen ob ein output signal kommt
 			System.out.println("Dolch " + daggerSelect);
 			}
@@ -231,6 +250,9 @@ public class Generatorui {
 																	rdbtnShortsword.setSelected(false);
 																	
 																	shortSwordselect = false ; longSwordselect = false; daggerSelect = false; bowSelect = false;
+																	//Konstruktor initialisierung
+																	Generateitem generateitemStaff = new Generateitem("staff", null);
+																	System.out.println(generateitemStaff.ausgabe);
 																	//prüfen ob ein output signal kommt
 																	System.out.println("Stab " + staffSelect);
 																}
