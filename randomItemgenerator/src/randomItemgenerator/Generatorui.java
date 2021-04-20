@@ -95,9 +95,9 @@ public class Generatorui {
 		lblLevel.setBounds(83, 57, 70, 15);
 		frmRandomItemGenerator.getContentPane().add(lblLevel);
 		
-		JButton btnNewButton_1 = new JButton("Generieren");
-		btnNewButton_1.setBounds(508, 308, 174, 59);
-		frmRandomItemGenerator.getContentPane().add(btnNewButton_1);
+		JButton btnGenerate = new JButton("Generieren");
+		btnGenerate.setBounds(508, 308, 174, 59);
+		frmRandomItemGenerator.getContentPane().add(btnGenerate);
 		
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
