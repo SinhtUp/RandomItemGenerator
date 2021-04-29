@@ -28,13 +28,12 @@ public class Generatorui {
 	
 	
 	
-	/**
-	 * @wbp.parser.entryPoint
-	 */
+
+
 	public void initialize() {
 		
 		
-		Actions generatorhandler = new Actions();
+		Weaponchoose weaponSelect = new Weaponchoose();
 		
 		frmRandomItemGenerator = new JFrame();
 		frmRandomItemGenerator.setTitle("Random Item Generator (pre pre pre Alpha)");
@@ -50,7 +49,7 @@ public class Generatorui {
 		frmRandomItemGenerator.setVisible(true);
 		
 		rdbtnShortsword = new JRadioButton("Kurzschwert");
-		rdbtnShortsword.addActionListener(generatorhandler);
+		rdbtnShortsword.addActionListener(weaponSelect);
 		rdbtnShortsword.setBounds(8, 8, 120, 15);
 		rdbtnShortsword.setBackground(null);
 		frmRandomItemGenerator.getContentPane().add(rdbtnShortsword);
@@ -58,25 +57,25 @@ public class Generatorui {
 		
 		
 		rdbtnLongSword = new JRadioButton("Langschwert");
-		rdbtnLongSword.addActionListener(generatorhandler);
+		rdbtnLongSword.addActionListener(weaponSelect);
 		rdbtnLongSword.setBounds(132, 8, 120, 15);
 		rdbtnLongSword.setBackground(null);
 		frmRandomItemGenerator.getContentPane().add(rdbtnLongSword);
 		
 		rdbtnDagger = new JRadioButton("Dolch");
-		rdbtnDagger.addActionListener(generatorhandler);
+		rdbtnDagger.addActionListener(weaponSelect);
 		rdbtnDagger.setBounds(256, 8, 71, 15);
 		rdbtnDagger.setBackground(null);
 		frmRandomItemGenerator.getContentPane().add(rdbtnDagger);
 		
 		rdbtnStaff = new JRadioButton("Stab");
-		rdbtnStaff.addActionListener(generatorhandler);
+		rdbtnStaff.addActionListener(weaponSelect);
 		rdbtnStaff.setBounds(331, 8, 71, 15);
 		rdbtnStaff.setBackground(null);
 		frmRandomItemGenerator.getContentPane().add(rdbtnStaff);
 		
 		rdbtnBow = new JRadioButton("Bogen");
-		rdbtnBow.addActionListener(generatorhandler);
+		rdbtnBow.addActionListener(weaponSelect);
 		rdbtnBow.setBounds(406, 8, 78, 15);
 		rdbtnBow.setBackground(null);
 		frmRandomItemGenerator.getContentPane().add(rdbtnBow);
@@ -101,9 +100,9 @@ public class Generatorui {
 		
 		JSeparator separator = new JSeparator();
 		separator.setOrientation(SwingConstants.VERTICAL);
-		separator.setForeground(Color.WHITE);
+		separator.setForeground(Color.RED);
 		separator.setBackground(Color.DARK_GRAY);
-		separator.setBounds(492, 8, 63, 371);
+		separator.setBounds(492, 8, 14, 371);
 		frmRandomItemGenerator.getContentPane().add(separator);
 		
 		rdbtnFire = new JRadioButton("Feuer");
@@ -148,7 +147,7 @@ public class Generatorui {
 		
 	}
 
-	private class Actions implements ActionListener{
+	private class Weaponchoose implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -192,6 +191,7 @@ public class Generatorui {
 			System.out.println(generateitemBow.ausgabe);
 			//prüfen ob ein output signal kommt
 			System.out.println("Bogen " + bowSelect);
+			txtoutput.setText(generateitemBow.ausgabe);
 			}
 			else if (bowSelect == true && e.getSource()== rdbtnBow) {
 			bowSelect = false;
@@ -212,6 +212,7 @@ public class Generatorui {
 																System.out.println(generateitemLongsword.ausgabe);
 																//prüfen ob ein output signal kommt
 																	System.out.println("langschwert " + longSwordselect);
+																	txtoutput.setText(generateitemLongsword.ausgabe);
 																}
 																else if (longSwordselect == true && e.getSource()== rdbtnLongSword) {
 																	longSwordselect = false;
@@ -235,6 +236,7 @@ public class Generatorui {
 			System.out.println(generateitemDagger.ausgabe);
 			//prüfen ob ein output signal kommt
 			System.out.println("Dolch " + daggerSelect);
+			txtoutput.setText(generateitemDagger.ausgabe);
 			}
 			else if (daggerSelect == true && e.getSource()== rdbtnDagger) {
 			daggerSelect = false;
@@ -255,6 +257,7 @@ public class Generatorui {
 																	System.out.println(generateitemStaff.ausgabe);
 																	//prüfen ob ein output signal kommt
 																	System.out.println("Stab " + staffSelect);
+																	txtoutput.setText(generateitemStaff.ausgabe);
 																}
 																else if (staffSelect == true && e.getSource()== rdbtnStaff) {
 																	staffSelect = false;
@@ -265,10 +268,7 @@ public class Generatorui {
 																
 		//========================================================== Händler für radiale Buttons der Modifikatoren ==============================================================================//
 		
-			//händler für den Stab Radialbutton
-			if (bowSelect) {
-				
-			}
+			
 																
 		}
 	}
